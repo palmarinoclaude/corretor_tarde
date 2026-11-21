@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Corretor de Gabaritos – 8º ano</title>
+<title>Corretor de Gabaritos – GETECO</title>
 <style>
 :root{--bg:#eef2f8;--card:#fff;--tx:#14202f;--mut:#64748b;--pri:#2457d6;--pri2:#5b3df5;--priS:#e8eefc;--ok:#12805c;--okS:#dcf5ea;--bad:#c2312d;--badS:#fde8e7;--warn:#a66300;--warnS:#fff1d6;--bd:#dde4ee;--sh:0 1px 2px rgba(20,32,47,.06),0 8px 24px rgba(20,32,47,.06);color-scheme:light}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e131b;--card:#171e29;--tx:#e9eef6;--mut:#93a1b5;--pri:#6f9bff;--pri2:#8c7bff;--priS:#1e2a44;--ok:#4cc38a;--okS:#12332a;--bad:#ff8a82;--badS:#3a1c1b;--warn:#f0b955;--warnS:#3a2d12;--bd:#2a3546;--sh:none;color-scheme:dark}}
@@ -322,7 +322,7 @@ button[onclick="transfSel()"],#bAus{display:none!important}
  .tbl.rp tfoot{display:table-footer-group}
  .tbl.rp tr{break-inside:avoid;page-break-inside:avoid}
 }
-label.field:has(#pD),label.field:has(#rD){display:none}#st1 .help,#st1 .field:has(#fl){display:none}.naocoord #tbP,.naocoord #tbR,.naocoord #tbO,.naocoord #goObs{display:none!important}.nt{width:100%;border-collapse:collapse;font-size:13px}.nt th,.nt td{padding:6px 8px;border-bottom:1px solid #8884;text-align:center}.nt td:first-child,.nt th:first-child{text-align:left}</style>
+label.field:has(#pD),label.field:has(#rD){display:none}#st1 .help,#st1 .field:has(#fl){display:none}.naocoord #tbP,.naocoord #tbR,.naocoord #tbO,.naocoord #goObs,.naocoord #anuBox,.naocoord #trBox,.naocoord #st4 .row,.naocoord #st4 #sav{display:none!important}.nt{width:100%;border-collapse:collapse;font-size:13px}.nt th,.nt td{padding:6px 8px;border-bottom:1px solid #8884;text-align:center}.nt td:first-child,.nt th:first-child{text-align:left}</style>
 </head>
 <body class="wide">
 <header class="hero"><div class="brand"><div class="logo">✓</div><div><h1>Corretor de Gabaritos</h1><p>GETECO · Avaliação Trimestral Multidisciplinar · 3º Trimestre 2026 · 24/11/2026</p></div><button id="thm" type="button" aria-label="Alternar tema claro/escuro" title="Tema claro/escuro">🌓</button></div><nav class="tabs"><button id="tbC" class="on">📝 Correção<span class="tb-b" id="tbB" hidden></span></button><button id="tbP">📊 Panorama</button><button id="tbR">📑 Relatórios</button><button id="tbN">🔎 Notas</button></nav></header>
@@ -333,7 +333,7 @@ label.field:has(#pD),label.field:has(#rD){display:none}#st1 .help,#st1 .field:ha
 <label class="field">Turma<select id="turma" style="min-width:160px"><option value="">Selecione a turma…</option><option value="6º ano A">6º ano A</option><option value="6º ano B">6º ano B</option><option value="6º ano C">6º ano C</option><option value="6º ano D">6º ano D</option><option value="6º ano E">6º ano E</option><option value="6º ano F">6º ano F</option><option value="7º ano A">7º ano A</option><option value="7º ano B">7º ano B</option><option value="7º ano C">7º ano C</option><option value="7º ano D">7º ano D</option><option value="7º ano E">7º ano E</option></select></label>
 <div class="field" style="flex:1;min-width:200px">Lista de alunos (CSV ou Excel)<label class="btn ghost" id="flb" for="fl" style="opacity:.45;pointer-events:none">📋 Escolher arquivo</label><input id="fl" type="file" accept=".csv,.txt,.xlsx,.xls"></div>
 </div>
-<div id="lst" class="mut" style="margin-top:8px">Escolha a turma primeiro para liberar o envio da lista.</div><button type="button" class="ghost" id="addA" style="margin-top:8px">➕ Adicionar aluno</button><div id="profT" class="mut" style="margin-top:8px;font-weight:600"></div><div id="avs" style="display:none;margin-top:8px;padding:10px 12px;border-radius:12px;background:var(--warnS);color:var(--warn);font-size:13px;font-weight:600">Atenção: os gabaritos de respostas carregados aqui são do 8º ano. Para outras séries, envie os gabaritos oficiais para eu incluir.</div>
+<div id="lst" class="mut" style="margin-top:8px">Escolha a turma primeiro para liberar o envio da lista.</div><button type="button" class="ghost" id="addA" style="margin-top:8px">➕ Adicionar aluno</button><div id="profT" class="mut" style="margin-top:8px;font-weight:600"></div><div id="avs" style="display:none"></div>
 <div class="help">A lista precisa ter uma coluna <b>Nome</b>. Colunas opcionais: Turma e Tipo (“adaptada” para quem fez a prova adaptada).</div></div></section>
 
 <section class="step" id="st2"><div class="sh"><span class="num">2</span><div><h2>Ler os gabaritos</h2><p class="sub">Escolha o dia e o aluno, depois fotografe a folha</p></div><span class="chip" id="c2">nenhuma folha</span></div>
@@ -738,7 +738,7 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("cf").style.displ
 $("modal").onclick=()=>$("modal").style.display="none";
 $("turma").onchange=()=>{const v=$("turma").value;if(cur)store[cur]={alunos,folhas};
   $("flb").style.opacity=v?1:.45;$("flb").style.pointerEvents=v?"auto":"none";
-  $("avs").style.display=v&&!v.startsWith("8")?"block":"none";
+  $("avs").style.display="none";
   const T=store[v];alunos=T?T.alunos:[];folhas=T?T.folhas:{1:[],2:[]};sel=0;cur=v;if(!alunos.length&&ROSTER[v]){alunos=ROSTER[v].map(x=>({nome:x[0],tipo:x[1]}));folhas={1:[],2:[]}}
   $("lst").innerHTML=alunos.length?`<span class="ok">✓ ${nAtivos()} alunos carregados${alunos.length>nAtivos()?" · "+(alunos.length-nAtivos())+" transferido(s)":""}</span>`:(v?"Agora envie a lista de alunos de "+v+".":"Escolha a turma primeiro para liberar o envio da lista.");
   $("busy").textContent="";render()};
@@ -773,7 +773,7 @@ let panDia=0,panQ="",rSel="",rTipo="boletim",rep=null,rAl="";
 const lbl=k=>k.replace("º ano ","º"),kpi=(b,s,c)=>`<div class="kpi ${c||""}"><b>${b}</b><span>${s}</span></div>`;
 const keysAll=()=>Object.keys(store).filter(k=>store[k].alunos.length);
 const keysOf=s=>s==="8*"?keysAll().filter(k=>k.startsWith("8")):s==="*"?keysAll():store[s]&&store[s].alunos.length?[s]:[];
-const scopeOpts=all=>{const ks=keysAll();return[...(ks.some(k=>k.startsWith("8"))?[["8*","Todos os 8º anos (comparativo)"]]:[]),...(all&&ks.length>1?[["*","Todas as turmas"]]:[]),...ks.map(k=>[k,k])]};
+const scopeOpts=all=>{const ks=keysAll();return[...(all&&ks.length>1?[["*","Todas as turmas"]]:[]),...ks.map(k=>[k,k])]};
 const fillSel=(id,o,v)=>{$(id).innerHTML=o.map(x=>`<option value="${x[0]}"${x[0]===v?" selected":""}>${x[1]}</option>`).join("")||'<option value="">—</option>'};
 function calc(keys){
  const o={stu:[]};
@@ -1033,7 +1033,7 @@ $("exp").onclick=async()=>{
     $("msg").textContent="Arquivo baixado: "+fn+". Anexe-o ao e-mail ou ao WhatsApp para enviar."}
   catch(e){$("msg").textContent="Download cancelado ou indisponível."}};
 /* ---------- armazenamento local (localStorage) ---------- */
-const LS_KEY="corretor_gabaritos_v1";
+const LS_KEY="corretor_gabaritos_geteco_trim3_2026";
 let carregado=false,saveT=0;
 const dumpState=(semThumb)=>JSON.stringify({v:2,cur,dia,sel,anul,auto:$("auto").checked,store:(cur&&(store[cur]={alunos,folhas}),store)},
   (k,v)=>k==="cells"||(semThumb&&k==="thumb")?undefined:v);
@@ -1299,8 +1299,8 @@ render();
 const gkL=(d,q,ad)=>CH.regular[d][q-1]+(ad?"/"+CH.adaptada[d][q-1]:"");
 
 /* professor responsável pela correção, por turma */
-const PROF={"5º ano A":"Priscila Oliveira","6º ano A":"Cássio","6º ano B":"Eliene","6º ano C":"Ana Cristina Guimarães","7º ano A":"Poliana","7º ano B":"Camila Miranda","7º ano C":"Alberto","8º ano A":"Everton","8º ano B":"Mônica","8º ano C":"Kellen","9º ano A":"Jean","9º ano B":"Paula","9º ano C":"João Paulo"};
-const profEsc=(k,t)=>t==="lista"||t==="ficha"?"":PROF[k]?" · Prof. "+PROF[k]:k==="8*"?" · Profs.: Everton (8º A), Mônica (8º B), Kellen (8º C)":"";
+const PROF={};
+const profEsc=(k,t)=>t==="lista"||t==="ficha"?"":PROF[k]?" · Prof. "+PROF[k]:"";
 (function(){
  const g=id=>document.getElementById(id);
  function pt(){const v=g("turma").value;g("profT").innerHTML=v&&PROF[v]?"👩‍🏫 Professor(a) responsável pela correção: <b>"+PROF[v]+"</b>":""}
@@ -1440,7 +1440,7 @@ g("tbN").onclick=()=>aba(4);g("nT").onchange=renderNotas;g("nQ").oninput=renderN
 g.style.cssText="position:fixed;inset:0;z-index:50;background:var(--bg,#0f172a);color:var(--tx,#e5e7eb);display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto";document.body.appendChild(g);
 let adm=E("cg_adm")||"coord2026";const C=document.createElement("style");
 C.textContent="#gt input,#gt textarea{width:100%;box-sizing:border-box;padding:10px;border-radius:10px;border:1px solid #888;font:inherit;margin:6px 0}#gt{max-width:560px;width:100%}#gt button{padding:10px 16px;margin:4px 4px 0 0}";document.head.appendChild(C);
-function login(){g.innerHTML='<div id="gt"><h2>Corretor de Gabaritos</h2><p>Digite o código da sua turma (ex.: 6A, 7C).</p><input id="gc" autocomplete="off" placeholder="Código da turma"><div id="ge" style="color:#f87171"></div><button id="gb">Entrar</button></div>';
+function login(){g.innerHTML='<div id="gt"><h2>Corretor de Gabaritos</h2><p>Digite o código da sua turma (ex.: 6A, 7C).</p><input id="gc" autocomplete="off" placeholder="Código da turma"><div id="ge" style="color:#f87171"></div><button id="gb">Entrar</button><p style="margin-top:22px"><a href="https://palmarinoclaude.github.io/corretor_tarde/" target="_blank" rel="noopener" style="display:inline-block;padding:10px 16px;border-radius:10px;border:1px solid #888;color:inherit;text-decoration:none">🔗 Corretor GETECO Tarde</a></p></div>';
  const go=()=>{const v=document.getElementById("gc").value.trim();if(v===adm)return admin();const m=v.match(/^([5-9])\s*º?\s*ª?\s*([A-F])$/i);if(!m)return document.getElementById("ge").textContent="Código inválido. Use o formato 6A, 7B…";entrar(m[1]+"º ano "+m[2].toUpperCase())};
  document.getElementById("gb").onclick=go;document.getElementById("gc").onkeydown=e=>{if(e.key==="Enter")go()}}
 function entrar(tur){g.remove();document.body.classList.toggle("naocoord",!!tur);const t=document.getElementById("turma");
